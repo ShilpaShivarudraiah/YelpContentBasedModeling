@@ -14,6 +14,13 @@ from nltk.stem import SnowballStemmer
 
 nltk.download('stopwords')
 
+"""This is a function named "preprocess" which takes a string input "text" and 
+    performs several text preprocessing tasks on it. 
+    These tasks include removing punctuation, converting text to lowercase, and removing stop words. 
+    The function returns the preprocessed text as a string. 
+    If the input text is not a string, it is returned as is."""
+
+
 def preprocess(text):
     if isinstance(text, str):
 
@@ -34,20 +41,23 @@ def preprocess(text):
         return text
     else:
         return text
-
+    
+"""This is a function named classify which takes a string as an input and returns a sentiment classification label for that text. 
+    It first preprocesses the input by removing punctuations, converting it to lowercase, and removing stop words. 
+    It then uses a pre-trained transformer model called "cardiffnlp/twitter-roberta-base" 
+    to classify the sentiment of the input into one of three categories: negative, neutral, or positive. 
+    The output is the sentiment label with the highest score."""
 
 def classify(text: str = ""):
     text = preprocess(text)
-    #print("TEXT : ", text, " \n ")
     task = 'sentiment'
     MODEL = f"cardiffnlp/twitter-roberta-base-{task}"
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL)
     labels = ['negative','neutral','positive']
     model = AutoModelForSequenceClassification.from_pretrained(MODEL)
-    model.to('cuda')
-    #print("Text",text)
-    encoded_input = tokenizer(text,max_length=514, truncation=True, return_tensors='pt').to('cuda')
+    model.to('cpu')
+    encoded_input = tokenizer(text,max_length=500, truncation=True, return_tensors='pt').to('cpu')
     output = model(**encoded_input)
     scores = output[0][0].detach().cpu().numpy()
     scores = softmax(scores)
@@ -61,8 +71,6 @@ def classify(text: str = ""):
         if s > max_score:
           max_score = s
           max_label = l_1
-        #print(f"{i + 1}) {l_1} {np.round(float(s), 4)}")
-    #print("Label Max",max_label)
     return max_label
       
 
