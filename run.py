@@ -8,16 +8,17 @@ print("Review Dataframe Loaded")
 sent = Sentiment()
 s = HotelRecommender(df_review, sent, 'business_restaurant.csv')
 rel = []
+numb = 10
 while True:
     user_input = input("Enter a business name to get recommendations or press 'q' to exit: ")
     if user_input == 'q':
         break
     
-    _ = s.recommend(user_input, 5)
+    _ = s.recommend(user_input, numb)
     if _ is not -1:
         valid = input("Please enter the number of recommendations which you find relevant: ")
         rel.append(int(valid))
-        print("Precision is: ", round((int(valid)/5),2))
+        print("Precision is: ", round((int(valid)/numb),2))
 
 map = 0
 for i in rel:
