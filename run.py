@@ -22,7 +22,7 @@ while True:
 
 map = 0
 for i in rel:
-    map+=i/5
+    map+=i/numb
 map=map/len(rel)
 print("Mean Average Precision is: ", round(map,2))
 
