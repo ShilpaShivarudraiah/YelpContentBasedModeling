@@ -13,6 +13,8 @@ To create an environment using condo:
 
 2. ```conda activate YelpContentModeling```
 
+3. ```conda install python```
+
 ### Step 3
 To install the required libraries:
 
