@@ -2,7 +2,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 import pandas as pd
 from tqdm import tqdm
-
+from gdrive_downloader import g_downloader
 
 
 """The combFeatures function takes in a single row of a Pandas DataFrame and returns a concatenated string of various features of the business represented in that row.
@@ -91,6 +91,9 @@ class HotelRecommender:
         The df_review and sent arguments are also attributes of the class, and are used to help with sentiment analysis of user reviews."""
     
     def __init__(self, df_review, sent, csv_path: str = "business_restaurant.csv"):
+        print("Downloading Business Restaurent Data")
+        g_downloader('1Ca0cBZ9BaoOeB2qAVMe2CO36aqT4G99x')
+        print("Downloaded Business Restuarent Data")
         self.df = pd.read_csv(csv_path)
         self.features = ['categories', 'RestaurantsTakeOut', 'BusinessAcceptsCreditCards', 'RestaurantsDelivery',
                          'BikeParking', 'Caters', 'GoodForKids', 'WheelchairAccessible', 'RestaurantsReservations',
