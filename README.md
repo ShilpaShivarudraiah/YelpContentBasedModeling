@@ -1,4 +1,4 @@
-# Hotel Recommendation System - Content Based Filtering
+# Restaurant Recommendation System - Content Based Filtering
 
 <br>
 
