@@ -1,8 +1,8 @@
 # Restaurant Recommendation System - Content Based Filtering
 
-##Content Based Modeling
+Content Based Modeling
 
-##Content-based modeling in restaurant recommendation systems is a technique used to provide personalized recommendations to users based on the characteristics of the restaurants and the preferences of the users.
+Content-based modeling in restaurant recommendation systems is a technique used to provide personalized recommendations to users based on the characteristics of the restaurants and the preferences of the users.
 
 <br>
 
