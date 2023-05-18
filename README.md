@@ -28,7 +28,7 @@ To install the required libraries:
 
 python run.py
 
-1. Enter the Business Name for Getting the Recommendation
+1. Enter the Restaurant Name (Ex: Starbucks) for Getting the Recommendation
 2. Enter the Number of Recommendations which you find Relevant
 3. Enter q to exit or enter business name for new recommendation.
 
